@@ -1,22 +1,26 @@
 diff --git a/tasks.py b/tasks.py
-index 0e8acb2..12658d6 100644
+index 493618b..a64b231 100644
 --- a/tasks.py
 +++ b/tasks.py
-@@ -80,7 +80,7 @@ def _run_tests(ctx, mark=None, skip=None, junitxml=None):
+@@ -80,7 +80,8 @@ def _run_tests(ctx, mark=None, skip=None, junitxml=None):
          cmd.extend(['--junitxml', junitxml])
      cmd.append('-v')
      cmd.append('-x')
 -    cmd.extend(['--rerun', '1'])
 +    # cmd.extend(['--rerun', '1'])
++    # Commented out as we need pytest-rerunfailures as a conda-recipe first
 
      marks = []
      if mark is not None:
-@@ -94,7 +94,7 @@ def _run_tests(ctx, mark=None, skip=None, junitxml=None):
+@@ -94,7 +95,10 @@ def _run_tests(ctx, mark=None, skip=None, junitxml=None):
 
      if not WINDOWS:
          run(ctx, "ls -a .coverage*")
 -        run(ctx, "coverage combine")
 +        run(ctx, "coverage combine || true")
++        # Ignore coverage return code. If no coverage files are found coverage
++        # v4.2 exits with 0 while coverage v4.3.1 exits with 1 causing CI
++        # builds to fail
 
 
  @task
