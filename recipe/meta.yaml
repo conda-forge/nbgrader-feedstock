@@ -53,12 +53,9 @@ requirements:
 
 test:
   requires:
-    - coverage
-    - invoke
     - nodejs
     - notebook >=4.2
     - pytest
-    - pytest-cov
     - python
     - requests
     - selenium
