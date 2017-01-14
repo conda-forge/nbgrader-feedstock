@@ -12,11 +12,10 @@ source:
   url: https://github.com/{{ gh_org }}/{{ gh_repo }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - tasks.patch
     - test_nbgrader.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and py27]
 
 requirements:
@@ -53,13 +52,9 @@ requirements:
 
 test:
   requires:
-    - coverage
-    - invoke
-    - jupyterhub <0.7  # [unix and py3k]
     - nodejs
     - notebook >=4.2
     - pytest
-    - pytest-cov
     - python
     - requests
     - selenium
