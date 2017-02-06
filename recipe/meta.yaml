@@ -1,7 +1,7 @@
 {% set gh_org = "jupyter" %}
 {% set gh_repo = "nbgrader" %}
-{% set version = "v0.3.3" %}
-{% set sha256 = "44e0625847d38b4a3860dd20f66e9d281a291195eead728cfc818ef783aeab4c" %}
+{% set version = "v0.4.0" %}
+{% set sha256 = "a7170b76eaf493a59ed1e314f0256a55930ecf28c2c1ca4b6896b3ad6dd235d1" %}
 
 package:
   name: {{ gh_repo|lower }}
@@ -11,8 +11,6 @@ source:
   fn: {{ gh_repo }}-{{ version }}.tar.gz
   url: https://github.com/{{ gh_org }}/{{ gh_repo }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - test_nbgrader.patch
 
 build:
   number: 1
