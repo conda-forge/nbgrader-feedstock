@@ -12,7 +12,10 @@ source:
   url: https://github.com/{{ gh_org }}/{{ gh_repo }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - test_nbgrader.patch
+    - PR695.patch
+    - PR700.patch
+    - PR701.patch
+    - PR704.patch
 
 build:
   number: 0
