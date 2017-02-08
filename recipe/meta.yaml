@@ -58,7 +58,6 @@ test:
     - nodejs
     - notebook >=4.2
     - pytest
-    - pytest-rerunfailures
     - python
     - requests
     - selenium
