@@ -1,0 +1,26 @@
+diff --git a/nbgrader/tests/formgrader/conftest.py b/nbgrader/tests/formgrader/conftest.py
+index 7c5b436..8efc2ab 100644
+--- a/nbgrader/tests/formgrader/conftest.py
++++ b/nbgrader/tests/formgrader/conftest.py
+@@ -101,7 +101,7 @@ def _formgrader(request, manager_class, gradebook, tempdir):
+     capabilities['loggingPrefs'] = {'browser': 'ALL'}
+     capabilities['acceptSslCerts'] = True
+     browser = webdriver.PhantomJS(
+-        service_args=['--ignore-ssl-errors=true'],
++        service_args=['--ignore-ssl-errors=true', '--proxy-type=none'],
+         desired_capabilities=capabilities,
+         service_log_path=os.path.devnull)
+     browser.set_page_load_timeout(10)
+diff --git a/nbgrader/tests/nbextensions/conftest.py b/nbgrader/tests/nbextensions/conftest.py
+index 6c54ed7..c3a3cf9 100644
+--- a/nbgrader/tests/nbextensions/conftest.py
++++ b/nbgrader/tests/nbextensions/conftest.py
+@@ -191,7 +191,7 @@ def browser(request, tempdir, nbserver):
+     capabilities = DesiredCapabilities.PHANTOMJS
+     capabilities['loggingPrefs'] = {'browser': 'ALL'}
+     browser = webdriver.PhantomJS(
+-        service_args=['--cookies-file=/dev/null'],
++        service_args=['--cookies-file=/dev/null', '--proxy-type=none'],
+         desired_capabilities=capabilities,
+         service_log_path=os.path.devnull)
+     browser.set_page_load_timeout(30)
