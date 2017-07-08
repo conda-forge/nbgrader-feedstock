@@ -1,7 +1,7 @@
 {% set gh_org = "jupyter" %}
 {% set gh_repo = "nbgrader" %}
-{% set version = "v0.4.0" %}
-{% set sha256 = "a7170b76eaf493a59ed1e314f0256a55930ecf28c2c1ca4b6896b3ad6dd235d1" %}
+{% set version = "v0.5.0" %}
+{% set sha256 = "759fb99278c345c0ee8548acee04e9859cd1436f03d3d0d35cfe53ca0d477286" %}
 
 package:
   name: {{ gh_repo|lower }}
@@ -11,11 +11,6 @@ source:
   fn: {{ gh_repo }}-{{ version }}.tar.gz
   url: https://github.com/{{ gh_org }}/{{ gh_repo }}/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - PR695.patch
-    - PR700.patch
-    - PR701.patch
-    - PR704.patch
 
 build:
   number: 1
@@ -37,6 +32,8 @@ requirements:
     - sqlalchemy
     - tornado
     - traitlets
+    - jsonschema
+    - alembic
 
   run:
     - jupyter
@@ -52,6 +49,8 @@ requirements:
     - sqlalchemy
     - tornado
     - traitlets
+    - jsonschema
+    - alembic
 
 test:
   requires:
