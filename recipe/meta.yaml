@@ -18,7 +18,7 @@ source:
     - PR704.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and py27]
 
 requirements:
@@ -61,6 +61,7 @@ test:
     - python
     - requests
     - selenium
+    - phantomjs
 
   source_files:
     - '*'
