@@ -1,7 +1,7 @@
 {% set gh_org = "jupyter" %}
 {% set gh_repo = "nbgrader" %}
-{% set version = "v0.5.0" %}
-{% set sha256 = "759fb99278c345c0ee8548acee04e9859cd1436f03d3d0d35cfe53ca0d477286" %}
+{% set version = "v0.5.1" %}
+{% set sha256 = "971a37b58a8f1a26e7b17eacb091879b5f1646f5097b717626436a266a178d33" %}
 
 package:
   name: {{ gh_repo|lower }}
