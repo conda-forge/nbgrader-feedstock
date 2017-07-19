@@ -49,7 +49,7 @@ test:
   commands:
     - nbgrader -h
     - export USER=$(whoami)  # [not win]
-    - py.test -v -x -m "not nbextensions"
+    - py.test -v -x -m "not nbextensions"  # [not (win and py2k)]
 
 about:
   home: https://github.com/jupyter/nbgrader
