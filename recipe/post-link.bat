@@ -1,5 +1,4 @@
 @echo off
-1>>"%PREFIX%\.messages.txt" 2>&1 (
-  "%PREFIX%\Scripts\jupyter-nbextension.exe" enable --sys-prefix --py nbgrader
-  "%PREFIX%\Scripts\jupyter-serverextension.exe" enable --sys-prefix --py nbgrader
-)
+
+"%PREFIX%\Scripts\jupyter-nbextension.exe" install nbgrader --py --sys-prefix >> "%PREFIX%\.messages.txt" 2>&1 && if errorlevel 1 exit 1
+"%PREFIX%\Scripts\jupyter-serverextension.exe" enable nbgrader --py --sys-prefix >> "%PREFIX%\.messages.txt" 2>&1 && if errorlevel 1 exit 1

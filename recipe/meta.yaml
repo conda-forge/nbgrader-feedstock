@@ -1,48 +1,32 @@
-{% set gh_org = "jupyter" %}
-{% set gh_repo = "nbgrader" %}
 {% set version = "v0.5.1" %}
-{% set sha256 = "971a37b58a8f1a26e7b17eacb091879b5f1646f5097b717626436a266a178d33" %}
 
 package:
-  name: {{ gh_repo|lower }}
+  name: nbgrader
   version: {{ version }}
 
 source:
-  fn: {{ gh_repo }}-{{ version }}.tar.gz
-  url: https://github.com/{{ gh_org }}/{{ gh_repo }}/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/jupyter/nbgrader/archive/{{ version }}.tar.gz
+  sha256: 971a37b58a8f1a26e7b17eacb091879b5f1646f5097b717626436a266a178d33
 
 build:
-  number: 0
-  skip: true  # [win and py27]
+  number: 1
+  script: python -m pip install --no-deps .
+  entry_points:
+    - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
   build:
-    - jupyter
-    - jupyter_client
-    - jupyter_core
-    - nbconvert >=4.2
-    - nbformat
-    - notebook >=4.2
     - python
-    - python-dateutil
-    - requests
     - setuptools
-    - six
-    - sqlalchemy
-    - tornado
-    - traitlets
-    - jsonschema
-    - alembic
-
+    - pip
+    - jupyter
   run:
+    - python
+    - setuptools
     - jupyter
     - jupyter_client
     - jupyter_core
-    - nbconvert >=4.2
     - nbformat
-    - notebook >=4.2
-    - python
     - python-dateutil
     - requests
     - six
@@ -55,27 +39,24 @@ requirements:
 test:
   requires:
     - nodejs
-    - notebook >=4.2
     - pytest
-    - python
-    - requests
     - selenium
     - phantomjs
-
   source_files:
     - '*'
-
   imports:
     - nbgrader
   commands:
     - nbgrader -h
-  
+    - export USER=$(whoami)  # [not win]
+    - py.test -v -x -m "not nbextensions"
+
 about:
-  home: https://github.com/{{ gh_org }}/{{ gh_repo }}
+  home: https://github.com/jupyter/nbgrader
   license: BSD-3-Clause
   license_family: BSD
   license_file: COPYING.md
-  summary: A system for assigning and grading Jupyter notebooks.
+  summary: 'A system for assigning and grading Jupyter notebooks.'
 
 extra:
   recipe-maintainers:

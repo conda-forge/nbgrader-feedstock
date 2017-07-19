@@ -1,5 +1,4 @@
 @echo off
-1>>"%PREFIX%\.messages.txt" 2>&1 (
-  "%PREFIX%\Scripts\jupyter-nbextension" disable --sys-prefix --py nbgrader
-  "%PREFIX%\Scripts\jupyter-serverextension.exe" disable --sys-prefix --py nbgrader
-)
+
+"%PREFIX%\Scripts\jupyter-nbextension.exe" uninstall nbgrader --py --sys-prefix >> "%PREFIX%\.messages.txt" 2>&1 && if errorlevel 1 exit 1
+"%PREFIX%\Scripts\jupyter-serverextension.exe" disable nbgrader --py --sys-prefix >> "%PREFIX%\.messages.txt" 2>&1 && if errorlevel 1 exit 1
