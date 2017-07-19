@@ -67,7 +67,9 @@ test:
 
   imports:
     - nbgrader
-
+  commands:
+    - nbgrader -h
+  
 about:
   home: https://github.com/{{ gh_org }}/{{ gh_repo }}
   license: BSD-3-Clause
