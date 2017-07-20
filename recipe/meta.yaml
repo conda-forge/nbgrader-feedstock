@@ -1,4 +1,4 @@
-{% set version = "v0.5.1" %}
+{% set version = "v0.5.2" %}
 
 package:
   name: nbgrader
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/{{ version }}.tar.gz
-  sha256: 971a37b58a8f1a26e7b17eacb091879b5f1646f5097b717626436a266a178d33
+  sha256: e5b0ece300268d682cdfb12da0a66bf128a6baca2cf6a4a999ed28f977283fd9
 
 build:
-  number: 1
+  number: 0
   script: python -m pip install --no-deps .
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
