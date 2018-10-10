@@ -9,7 +9,7 @@ source:
   sha256: f8181b9007bc089b089edb8ba71002d2e9ed912b82bd111f2f4ffead265a4e50
 
 build:
-  number: 0
+  number: 1000
   script: python -m pip install --no-deps .
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
