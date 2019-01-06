@@ -38,19 +38,13 @@ requirements:
     - ipython<=6.2.1
 
 test:
-  requires:
-    - nodejs
-    - pytest=3.2.1
-    - selenium=3.6.0
-    - phantomjs
   source_files:
     - '*'
   imports:
     - nbgrader
   commands:
     - nbgrader -h
-    - export USER=$(whoami)  # [not win]
-    - py.test -v -x -m "not nbextensions"  # [not (win and py2k)]
+    - python -c "import nbgrader; print(nbgrader.__version__)"
 
 about:
   home: https://github.com/jupyter/nbgrader
