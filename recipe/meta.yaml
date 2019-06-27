@@ -10,6 +10,7 @@ source:
 
 build:
   number: 2
+  noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
@@ -36,7 +37,6 @@ requirements:
     - alembic
     - ipython <=6.2.1
     - jupyter_console <=5.2.0
-
 
 test:
   imports:
