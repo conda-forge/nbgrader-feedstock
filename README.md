@@ -1,24 +1,28 @@
 About nbgrader
 ==============
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
-
 Home: https://github.com/jupyter/nbgrader
 
 Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: A system for assigning and grading Jupyter notebooks.
+Summary: A system for assigning and grading Jupyter notebooks
 
 
 
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/nbgrader-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/nbgrader-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/nbgrader-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/nbgrader-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/nbgrader-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/nbgrader-feedstock/branch/master)
+
+<table><tr><td>All platforms:</td>
+    <td>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=5153&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/nbgrader-feedstock?branchName=master">
+      </a>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
@@ -51,6 +55,8 @@ conda search nbgrader --channel conda-forge
 
 About conda-forge
 =================
+
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -112,4 +118,5 @@ Feedstock Maintainers
 
 * [@jhamrick](https://github.com/jhamrick/)
 * [@lgpage](https://github.com/lgpage/)
+* [@ocefpaf](https://github.com/ocefpaf/)
 
