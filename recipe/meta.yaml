@@ -9,51 +9,50 @@ source:
   sha256: d3aa31a278613f9067f0b99cb56d914d716d85f2f36668eedfa1e7ae9354503c
 
 build:
-  number: 1
-  script: python -m pip install --no-deps .
+  number: 2
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
   build:
     - python
-    - setuptools
     - pip
-    - jupyter
   run:
     - python
-    - setuptools
-    - jupyter
-    - jupyter_client
-    - jupyter_core
-    - nbformat
-    - python-dateutil
-    - requests
-    - six>=1.9
     - sqlalchemy
-    - tornado
+    - python-dateutil
+    - jupyter
+    - notebook >=4.2
+    - nbconvert >=4.2
+    - nbformat
     - traitlets
+    - jupyter_core
+    - jupyter_client
+    - tornado
+    - six >=1.9
+    - requests
     - jsonschema
     - alembic
-    - ipython<=6.2.1
+    - ipython <=6.2.1
+    - jupyter_console <=5.2.0
+
 
 test:
-  source_files:
-    - '*'
   imports:
     - nbgrader
   commands:
     - nbgrader -h
-    - python -c "import nbgrader; print(nbgrader.__version__)"
 
 about:
   home: https://github.com/jupyter/nbgrader
   license: BSD-3-Clause
   license_family: BSD
-  license_file: COPYING.md
-  summary: 'A system for assigning and grading Jupyter notebooks.'
+  license_file: LICENSE
+  summary: 'A system for assigning and grading Jupyter notebooks'
 
 extra:
   recipe-maintainers:
     - jhamrick
     - lgpage
+    - ocefpaf
