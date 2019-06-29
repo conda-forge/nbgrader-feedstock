@@ -35,8 +35,6 @@ requirements:
     - requests
     - jsonschema
     - alembic
-    - ipython <=6.2.1
-    - jupyter_console <=5.2.0
 
 test:
   source_files:
