@@ -9,7 +9,7 @@ source:
   sha256: d3aa31a278613f9067f0b99cb56d914d716d85f2f36668eedfa1e7ae9354503c
 
 build:
-  number: 2
+  number: 3
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
@@ -39,10 +39,17 @@ requirements:
     - jupyter_console <=5.2.0
 
 test:
+  source_files:
+    - '*'
+  requires:
+    - pytest
+    - selenium
   imports:
     - nbgrader
   commands:
     - nbgrader -h
+    - export USER=$(whoami)
+    - pytest -s -rxs -v -m "not (nbextensions)"
 
 about:
   home: https://github.com/jupyter/nbgrader
