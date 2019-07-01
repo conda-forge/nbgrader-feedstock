@@ -46,8 +46,8 @@ test:
     - nbgrader
   commands:
     - nbgrader -h
-    - export USER=$(whoami)
-    - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"
+    - export USER=$(whoami)  # [not win]
+    - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"  # [not win]
 
 about:
   home: https://github.com/jupyter/nbgrader
