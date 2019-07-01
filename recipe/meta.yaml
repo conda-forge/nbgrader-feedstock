@@ -9,8 +9,8 @@ source:
   sha256: d3aa31a278613f9067f0b99cb56d914d716d85f2f36668eedfa1e7ae9354503c
 
 build:
-  number: 3
-  noarch: python
+  number: 4
+  # Cannot be noarch b/c of the post/pre scripts.
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
@@ -46,8 +46,8 @@ test:
     - nbgrader
   commands:
     - nbgrader -h
-    - export USER=$(whoami)
-    - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"
+    - export USER=$(whoami)  # [not win]
+    - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"  # [not win]
 
 about:
   home: https://github.com/jupyter/nbgrader
