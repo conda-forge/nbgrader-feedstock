@@ -1,4 +1,4 @@
-{% set version = "0.5.6" %}
+{% set version = "0.6.0" %}
 
 package:
   name: nbgrader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: 0fb550158a9a46e39d5315f612387965a9bc01fbafa2e5100bcad836b53cab1e
+  sha256: 3148531363bca99af390e5cff6e3cbd29ff20fae66b7c98e2d968e18c0948589
 
 build:
   number: 0
@@ -25,16 +25,17 @@ requirements:
     - python-dateutil
     - jupyter
     - notebook >=4.2
-    - nbconvert >=4.2
+    - nbconvert >=5.6
     - nbformat
     - traitlets
     - jupyter_core
     - jupyter_client
     - tornado
-    - six >=1.9
+    - six >=1.11
     - requests
     - jsonschema
     - alembic
+    - fuzzywuzzy
 
 test:
   source_files:
@@ -42,6 +43,7 @@ test:
   requires:
     - pytest
     - selenium
+    - requests-mock
   imports:
     - nbgrader
   commands:
