@@ -43,6 +43,7 @@ test:
   requires:
     - pytest
     - selenium
+    - requests-mock
   imports:
     - nbgrader
   commands:
