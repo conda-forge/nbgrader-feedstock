@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 
 package:
   name: nbgrader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: 3148531363bca99af390e5cff6e3cbd29ff20fae66b7c98e2d968e18c0948589
+  sha256: 58912a318fd3b6ae3a0298d916b55481753f5fc068424ce6da6a4ddee731dd40
 
 build:
   number: 0
