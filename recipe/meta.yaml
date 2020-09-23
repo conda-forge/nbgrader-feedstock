@@ -9,7 +9,7 @@ source:
   sha256: 58912a318fd3b6ae3a0298d916b55481753f5fc068424ce6da6a4ddee731dd40
 
 build:
-  number: 0
+  number: 1
   # Cannot be noarch b/c of the post/pre scripts.
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
