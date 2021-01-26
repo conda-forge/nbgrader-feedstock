@@ -16,7 +16,7 @@ build:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
