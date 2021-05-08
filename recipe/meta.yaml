@@ -1,4 +1,4 @@
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: nbgrader
@@ -6,17 +6,17 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: 58912a318fd3b6ae3a0298d916b55481753f5fc068424ce6da6a4ddee731dd40
+  sha256: 09a6a79ea07867a844ab5b475e9784319dc441a5bd19ae71f8d853ae196b2180
 
 build:
-  number: 1
+  number: 0
   # Cannot be noarch b/c of the post/pre scripts.
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
@@ -57,7 +57,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A system for assigning and grading Jupyter notebooks'
+  summary: A system for assigning and grading Jupyter notebooks
 
 extra:
   recipe-maintainers:
