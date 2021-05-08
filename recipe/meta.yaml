@@ -21,13 +21,13 @@ requirements:
     - pip
   run:
     - python
-    - sqlalchemy
+    - sqlalchemy <1.4
     - python-dateutil
     - jupyter
     - notebook >=4.2
-    - nbconvert >=5.6
+    - nbconvert =5.6.1
     - nbformat
-    - traitlets
+    - traitlets =4.3.3
     - jupyter_core
     - jupyter_client
     - tornado
@@ -35,22 +35,21 @@ requirements:
     - requests
     - jsonschema
     - alembic
-    - fuzzywuzzy
+    - rapidfuzz
 
 test:
   source_files:
     - '*'
-  # requires:
-  #   - pytest
-  #   - selenium
-  #   - requests-mock
+  requires:
+    - pytest
+    - selenium
+    - requests-mock
   imports:
     - nbgrader
   commands:
     - nbgrader -h
-    # TODO: these tests should get reenabled with the next release (0.6.2) of nbgrader.
-    # - export USER=$(whoami)  # [not win]
-    # - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"  # [not win]
+    - export USER=$(whoami)  # [not win]
+    - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"  # [not win]
 
 about:
   home: https://github.com/jupyter/nbgrader
