@@ -1,4 +1,4 @@
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: nbgrader
@@ -6,58 +6,49 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: 58912a318fd3b6ae3a0298d916b55481753f5fc068424ce6da6a4ddee731dd40
+  sha256: 09a6a79ea07867a844ab5b475e9784319dc441a5bd19ae71f8d853ae196b2180
 
 build:
-  number: 1
+  number: 0
   # Cannot be noarch b/c of the post/pre scripts.
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
     - python
-    - sqlalchemy
-    - python-dateutil
-    - jupyter
-    - notebook >=4.2
-    - nbconvert >=5.6
-    - nbformat
-    - traitlets
-    - jupyter_core
-    - jupyter_client
-    - tornado
-    - six >=1.11
-    - requests
-    - jsonschema
     - alembic
-    - fuzzywuzzy
+    - jsonschema
+    - jupyter
+    - jupyter_client
+    - jupyter_core
+    - nbconvert ==5.6.1
+    - nbformat
+    - notebook >=4.2
+    - python-dateutil
+    - rapidfuzz
+    - requests
+    - six >=1.11
+    - sqlalchemy <1.4
+    - tornado
+    - traitlets ==4.3.3
 
 test:
-  source_files:
-    - '*'
-  # requires:
-  #   - pytest
-  #   - selenium
-  #   - requests-mock
   imports:
     - nbgrader
   commands:
     - nbgrader -h
-    # TODO: these tests should get reenabled with the next release (0.6.2) of nbgrader.
-    # - export USER=$(whoami)  # [not win]
-    # - pytest -s -rxs -v -m "not (nbextensions)" -k "not (test_submission_dicts or test_notebook_submission_dicts or test_get_submissions or test_get_notebook_submissions or test_get_student_notebook_submissions or test_validate_glob or test_filter_notebook or test_force or test_single_file)"  # [not win]
 
 about:
   home: https://github.com/jupyter/nbgrader
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A system for assigning and grading Jupyter notebooks'
+  summary: A system for assigning and grading Jupyter notebooks
 
 extra:
   recipe-maintainers:
