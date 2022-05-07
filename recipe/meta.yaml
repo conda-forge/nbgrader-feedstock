@@ -1,4 +1,4 @@
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 package:
   name: nbgrader
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: 09a6a79ea07867a844ab5b475e9784319dc441a5bd19ae71f8d853ae196b2180
+  sha256: 430401bae0dd7cf6b271186b10a54a0a125c78a11383a916b1a0e9123d7b16d7
 
 build:
-  number: 2
+  number: 0
   # Cannot be noarch b/c of the post/pre scripts.
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -36,7 +36,7 @@ requirements:
     - sqlalchemy >=1.4
     - tornado >=6.1
     - traitlets >=5.1
-        
+
 test:
   imports:
     - nbgrader
