@@ -22,6 +22,7 @@ requirements:
     - pip
   run:
     - python
+    - jupyter_packaging
     - sqlalchemy >=1.4,<2
     - python-dateutil >=2.8
     - notebook >=6.4,<7
