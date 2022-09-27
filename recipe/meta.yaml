@@ -13,8 +13,8 @@ build:
   number: 0
   script: 
     - export NBGRADER_NO_LAB=1   # skip building extension - already exists in sdist
-    - {{ PYTHON }} -m pip install -e . -vv
-    - {{ PYTHON }} -m pip install . --no-deps -vv
+    - {{ PYTHON }} -m build --wheel .
+    - {{ PYTHON }} -m pip install --no-deps -vv dist/*.whl
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
@@ -22,6 +22,7 @@ requirements:
   host:
     - python >=3.7
     - pip
+    - build
     - hatchling >=1.10.0
     - hatch-jupyter-builder >=0.5
     - jupyterlab <4
