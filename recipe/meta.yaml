@@ -20,7 +20,7 @@ requirements:
   host:
     - python
     - pip
-    - hatchling> =1.10.0
+    - hatchling >=1.10.0
     - jupyterlab <4
   run:
     - python
