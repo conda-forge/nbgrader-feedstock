@@ -1,4 +1,4 @@
-{% set version = "0.7.1" %}
+{% set version = "0.8.1" %}
 
 package:
   name: nbgrader
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: da2ad6f08320d7a2b72a3d823f961cfbbc87dd925a0f9b9df6436617671e581e
+  sha256: ac42c0818c6df269287aa9e18fc60c622ec3ab84893cb724d568b1c58ddbe0fe
 
 build:
   number: 0
-  skip: True  # [py<36]
+  skip: true  # [py<36]
   # Cannot be noarch b/c of the post/pre scripts.
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
