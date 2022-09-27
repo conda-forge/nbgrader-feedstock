@@ -20,6 +20,8 @@ requirements:
   host:
     - python
     - pip
+    - hatchling> =1.10.0
+    - jupyterlab <4
   run:
     - python
     - alembic >=1.7
@@ -28,12 +30,13 @@ requirements:
     - jsonschema >=3
     - jupyter_client <8
     - jupyter_server >=1.12
-    - markupsafe <2.2.0
+    - jupyterlab <4
+    - jupyterlab_server
+    - nbclassic <0.4.0
     - nbclient >=0.6.1
     - nbconvert >=6
     - notebook >=6.4,<7
     - python-dateutil >=2.8
-    - qtconsole >=5.2
     - rapidfuzz >=1.8
     - requests >=2.26
     - sqlalchemy >=1.4,<2
@@ -43,6 +46,7 @@ test:
   imports:
     - nbgrader
   commands:
+    - pip check
     - nbgrader -h
 
 about:
