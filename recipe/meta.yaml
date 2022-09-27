@@ -9,6 +9,7 @@ source:
   sha256: ac42c0818c6df269287aa9e18fc60c622ec3ab84893cb724d568b1c58ddbe0fe
 
 build:
+  noarch: python
   number: 0
   skip: true  # [py<36]
   # Cannot be noarch b/c of the post/pre scripts.
