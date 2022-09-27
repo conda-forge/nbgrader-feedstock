@@ -11,8 +11,9 @@ source:
 build:
   noarch: python
   number: 0
-  # Cannot be noarch b/c of the post/pre scripts.
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: 
+    - export NBGRADER_NO_LAB=1   # skip building extension - already exists in sdist
+    - {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
@@ -23,7 +24,6 @@ requirements:
     - hatchling >=1.10.0
     - hatch-jupyter-builder >=0.5
     - jupyterlab <4
-    - nodejs >=16
   run:
     - python >=3.7
     - alembic >=1.7
