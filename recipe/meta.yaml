@@ -19,12 +19,12 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
     - hatchling >=1.10.0
     - jupyterlab <4
   run:
-    - python
+    - python >=3.7
     - alembic >=1.7
     - ipywidgets >=7.6
     - jinja2 >=3
