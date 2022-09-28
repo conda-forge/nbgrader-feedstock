@@ -42,12 +42,11 @@ requirements:
     - requests >=2.26
     - sqlalchemy >=1.4,<2
     - traitlets <5.2.0
-
+ 
 test:
   imports:
     - nbgrader
   commands:
-    - pip check
     - nbgrader -h
 
 about:
