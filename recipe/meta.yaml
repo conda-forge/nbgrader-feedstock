@@ -1,44 +1,48 @@
-{% set version = "0.7.1" %}
+{% set version = "0.8.1" %}
 
 package:
   name: nbgrader
   version: {{ version }}
 
 source:
-  url: https://github.com/jupyter/nbgrader/archive/v{{ version }}.tar.gz
-  sha256: da2ad6f08320d7a2b72a3d823f961cfbbc87dd925a0f9b9df6436617671e581e
+  url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
+  sha256: af9303537687c8326591aaa996970a3b158f6bc065da3a4b292b9060e1edee71
 
 build:
+  noarch: python
   number: 0
-  skip: True  # [py<36]
-  # Cannot be noarch b/c of the post/pre scripts.
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: 
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
+    - hatchling >=1.10.0
+    - hatch-jupyter-builder >=0.3.2
+    - jupyterlab <4
   run:
-    - python
+    - python >=3.7
     - alembic >=1.7
     - ipywidgets >=7.6
     - jinja2 >=3
     - jsonschema >=3
     - jupyter_client <8
     - jupyter_server >=1.12
-    - markupsafe <2.2.0
+    - jupyterlab <4
+    - jupyterlab_server
+    - nbclassic <0.4.0
     - nbclient >=0.6.1
     - nbconvert >=6
     - notebook >=6.4,<7
     - python-dateutil >=2.8
-    - qtconsole >=5.2
     - rapidfuzz >=1.8
     - requests >=2.26
     - sqlalchemy >=1.4,<2
     - traitlets <5.2.0
-
+ 
 test:
   imports:
     - nbgrader
