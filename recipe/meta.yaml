@@ -12,9 +12,7 @@ build:
   noarch: python
   number: 0
   script: 
-    - export NBGRADER_NO_LAB=1   # skip building extension - already exists in sdist
-    - {{ PYTHON }} -m build --wheel .
-    - {{ PYTHON }} -m pip install --no-deps -vv dist/*.whl
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
