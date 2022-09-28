@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: ac42c0818c6df269287aa9e18fc60c622ec3ab84893cb724d568b1c58ddbe0fe
+  sha256: af9303537687c8326591aaa996970a3b158f6bc065da3a4b292b9060e1edee71
 
 build:
   noarch: python
