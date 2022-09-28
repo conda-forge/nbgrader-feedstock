@@ -12,7 +12,8 @@ build:
   noarch: python
   number: 0
   script: 
-    - ls nbgrader/labextension
+    - ls
+    - ls nbgrader
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
