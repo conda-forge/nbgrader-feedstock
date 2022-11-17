@@ -4,4 +4,6 @@ github:
   branch_name: main
   tooling_branch_name: main
 linux_ppc64le:
-  enabled: False
+  enabled: false
+conda_build:
+  pkg_format: '2'
