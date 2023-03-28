@@ -1,4 +1,4 @@
-{% set version = "0.8.1" %}
+{% set version = "0.8.2" %}
 
 package:
   name: nbgrader
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: af9303537687c8326591aaa996970a3b158f6bc065da3a4b292b9060e1edee71
+  sha256: d1a375ccdce31b3bd45a1110b525e4fc3b9e21ad916a22a1e682b147311ed425
 
 build:
   noarch: python
   number: 0
-  script: 
+  script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
@@ -42,7 +42,7 @@ requirements:
     - requests >=2.26
     - sqlalchemy >=1.4,<2
     - traitlets <5.2.0
- 
+
 test:
   imports:
     - nbgrader
