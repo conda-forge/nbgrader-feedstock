@@ -1,11 +1,11 @@
-About nbgrader
-==============
+About nbgrader-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nbgrader-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jupyter/nbgrader
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nbgrader-feedstock/blob/main/LICENSE.txt)
 
 Summary: A system for assigning and grading Jupyter notebooks
 
