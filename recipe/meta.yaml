@@ -1,4 +1,4 @@
-{% set version = "0.8.1" %}
+{% set version = "0.8.2" %}
 
 package:
   name: nbgrader
@@ -6,34 +6,33 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: af9303537687c8326591aaa996970a3b158f6bc065da3a4b292b9060e1edee71
+  sha256: d1a375ccdce31b3bd45a1110b525e4fc3b9e21ad916a22a1e682b147311ed425
 
 build:
   noarch: python
   number: 0
-  script: 
+  script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
     - hatchling >=1.10.0
-    - hatch-jupyter-builder >=0.3.2
+    - hatch-jupyter-builder >=0.7
     - jupyterlab <4
   run:
-    - python >=3.7
+    - python >=3.8
     - alembic >=1.7
     - ipywidgets >=7.6
     - jinja2 >=3
     - jsonschema >=3
     - jupyter_client <8
-    - jupyter_server >=1.12
+    - jupyter_server >=1.12,<2
     - jupyterlab <4
     - jupyterlab_server
-    - nbclassic <0.4.0
     - nbclient >=0.6.1
     - nbconvert >=6
     - notebook >=6.4,<7
@@ -41,8 +40,8 @@ requirements:
     - rapidfuzz >=1.8
     - requests >=2.26
     - sqlalchemy >=1.4,<2
-    - traitlets <5.2.0
- 
+    - traitlets >5.0,<6
+
 test:
   imports:
     - nbgrader
