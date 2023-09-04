@@ -12,48 +12,67 @@ build:
   noarch: python
   number: 0
   script:
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
 requirements:
   host:
-    - python >=3.8
-    - pip
-    - hatchling >=1.10.0
     - hatch-jupyter-builder >=0.7
-    - jupyterlab <4
-  run:
+    - hatchling >=1.10.0
+    - jupyterlab >=4.0.2,<5
+    - pip
     - python >=3.8
+  run:
     - alembic >=1.7
+    - ipython >=8.10.0
     - ipywidgets >=7.6
     - jinja2 >=3
     - jsonschema >=3
-    - jupyter_client <8
-    - jupyter_server >=1.12,<2
-    - jupyterlab <4
+    - jupyter_client <9
+    - jupyter_server >=2
+    - jupyterlab >=4.0.2,<5
     - jupyterlab_server
     - nbclient >=0.6.1
     - nbconvert >=6
-    - notebook >=6.4,<7
+    - notebook >=7.0.2,<8
+    - python >=3.8
     - python-dateutil >=2.8
+    - pyyaml >=6.0
     - rapidfuzz >=1.8
     - requests >=2.26
-    - sqlalchemy >=1.4,<2
-    - traitlets >5.0,<6
+    - sqlalchemy >=1.4,<3
 
 test:
+  requires:
+    - pip
+    - m2-grep  # [win]
+    - jupyterlab
   imports:
     - nbgrader
   commands:
+    - pip check
     - nbgrader -h
+    - jupyter lab --version
+    - jupyter labextension list
+    - jupyter server extension list
+    - jupyter labextension list 1>labextensions 2>&1
+    - jupyter server extension list 1>server_extensions 2>&1
+    {% for ext in ["assignment_list", "course_list", "formgrader", "validate_assignment"] %}
+    - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" server_extensions
+    - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" server_extensions
+    {% endfor %}
+    - grep -iE "nbgrader.*OK.*nbgrader" labextensions
 
 about:
   home: https://github.com/jupyter/nbgrader
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - nbgrader/labextension/static/third-party-licenses.json
   summary: A system for assigning and grading Jupyter notebooks
+  doc_url: https://nbgrader.readthedocs.io
 
 extra:
   recipe-maintainers:
@@ -63,3 +82,4 @@ extra:
     - ocefpaf
     - BertR
     - SylvainCorlay
+    - bollwyvl
