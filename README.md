@@ -9,6 +9,8 @@ Package license: BSD-3-Clause
 
 Summary: A system for assigning and grading Jupyter notebooks
 
+Documentation: https://nbgrader.readthedocs.io
+
 Current build status
 ====================
 
@@ -146,6 +148,7 @@ Feedstock Maintainers
 * [@BertR](https://github.com/BertR/)
 * [@SylvainCorlay](https://github.com/SylvainCorlay/)
 * [@blink1073](https://github.com/blink1073/)
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@jhamrick](https://github.com/jhamrick/)
 * [@lgpage](https://github.com/lgpage/)
 * [@ocefpaf](https://github.com/ocefpaf/)
