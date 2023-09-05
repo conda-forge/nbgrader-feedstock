@@ -1,4 +1,4 @@
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: nbgrader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: 33c0a5ed9df788f6795e5650fe925d11d6263d03521789a189777040479fa0e4
+  sha256: 88e3718fb4e6f75dd0b90afea3c5ad0abf14fd23ead4ce7a5c2be5eb6fa327d2
 
 build:
   noarch: python
@@ -62,7 +62,7 @@ test:
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" server_extensions
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" server_extensions
     {% endfor %}
-    - grep -iE "nbgrader.*OK.*nbgrader" labextensions || echo 'TODO fix https://github.com/jupyter/nbgrader/issues/1826'
+    - grep -iE "nbgrader.*OK.*nbgrader" labextensions
 
 about:
   home: https://github.com/jupyter/nbgrader
