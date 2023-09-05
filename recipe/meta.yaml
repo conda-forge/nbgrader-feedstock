@@ -1,4 +1,4 @@
-{% set version = "0.9.1" %}
+{% set version = "0.8.5" %}
 
 package:
   name: nbgrader
@@ -24,6 +24,10 @@ requirements:
     - pip
     - python >=3.7
   run:
+    # TODO: remove after
+    # - https://github.com/conda-forge/jupyter_server-feedstock/pull/131
+    # - repodata patches
+    - anyio <4
     - alembic >=1.7
     - ipython >=8.10.0
     - ipywidgets >=7.6
@@ -54,15 +58,18 @@ test:
     - pip check
     - nbgrader -h
     - jupyter lab --version
+    - jupyter notebook --version
     - jupyter labextension list
     - jupyter server extension list
     - jupyter serverextension list
-    - jupyter nbextension list
     - jupyter labextension list 1>labextensions 2>&1
     - jupyter server extension list 1>server_extensions 2>&1
+    - jupyter serverextension list 1>serverextensions 2>&1
     {% for ext in ["assignment_list", "course_list", "formgrader", "validate_assignment"] %}
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" server_extensions
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" server_extensions
+    - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" serverextensions
+    - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" serverextensions
     {% endfor %}
     - grep -iE "nbgrader.*OK.*nbgrader" labextensions
 
