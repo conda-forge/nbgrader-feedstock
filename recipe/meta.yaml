@@ -24,10 +24,6 @@ requirements:
     - pip
     - python >=3.7
   run:
-    # TODO: remove after
-    # - https://github.com/conda-forge/jupyter_server-feedstock/pull/131
-    # - repodata patches
-    - anyio <4
     - alembic >=1.7
     - ipython >=8.10.0
     - ipywidgets >=7.6
