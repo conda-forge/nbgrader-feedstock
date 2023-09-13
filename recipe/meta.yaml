@@ -1,4 +1,4 @@
-{% set version = "0.9.1" %}
+{% set version = "0.8.5" %}
 
 package:
   name: nbgrader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: 88e3718fb4e6f75dd0b90afea3c5ad0abf14fd23ead4ce7a5c2be5eb6fa327d2
+  sha256: 22ea4a53cf77fccbe4aea10196782040a4d9f357730a463b0eb3db368311dea4
 
 build:
   noarch: python
@@ -20,7 +20,7 @@ requirements:
   host:
     - hatch-jupyter-builder >=0.7
     - hatchling >=1.10.0
-    - jupyterlab >=4.0.2,<5
+    - jupyterlab >=3.1,<4
     - pip
     - python >=3.8
   run:
@@ -30,18 +30,18 @@ requirements:
     - jinja2 >=3
     - jsonschema >=3
     - jupyter_client <9
-    - jupyter_server >=2
-    - jupyterlab >=4.0.2,<5
+    - jupyter_server >=1.12,<2
+    - jupyterlab >=3.1,<4
     - jupyterlab_server
     - nbclient >=0.6.1
     - nbconvert >=6
-    - notebook >=7.0.2,<8
+    - notebook >=6.4,<7
     - python >=3.8
     - python-dateutil >=2.8
-    - pyyaml >=6.0
     - rapidfuzz >=1.8
     - requests >=2.26
     - sqlalchemy >=1.4,<3
+    - traitlets >5.0,<6
 
 test:
   requires:
@@ -54,13 +54,18 @@ test:
     - pip check
     - nbgrader -h
     - jupyter lab --version
+    - jupyter notebook --version
     - jupyter labextension list
     - jupyter server extension list
+    - jupyter serverextension list
     - jupyter labextension list 1>labextensions 2>&1
     - jupyter server extension list 1>server_extensions 2>&1
+    - jupyter serverextension list 1>serverextensions 2>&1
     {% for ext in ["assignment_list", "course_list", "formgrader", "validate_assignment"] %}
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" server_extensions
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" server_extensions
+    - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" serverextensions
+    - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" serverextensions
     {% endfor %}
     - grep -iE "nbgrader.*OK.*nbgrader" labextensions
 
