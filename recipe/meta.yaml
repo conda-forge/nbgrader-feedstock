@@ -22,7 +22,7 @@ requirements:
     - hatchling >=1.10.0
     - jupyterlab >=3.1,<4
     - pip
-    - python >=3.7
+    - python >=3.8
   run:
     - alembic >=1.7
     - ipython >=8.10.0
@@ -36,7 +36,7 @@ requirements:
     - nbclient >=0.6.1
     - nbconvert >=6
     - notebook >=6.4,<7
-    - python >=3.7
+    - python >=3.8
     - python-dateutil >=2.8
     - rapidfuzz >=1.8
     - requests >=2.26
