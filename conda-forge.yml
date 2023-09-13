@@ -7,3 +7,5 @@ linux_ppc64le:
   enabled: false
 conda_build:
   pkg_format: '2'
+bot:
+  inspection: hint-all
