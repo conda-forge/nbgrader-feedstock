@@ -1,4 +1,4 @@
-{% set version = "0.9.1" %}
+{% set version = "0.9.2" %}
 
 package:
   name: nbgrader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: 88e3718fb4e6f75dd0b90afea3c5ad0abf14fd23ead4ce7a5c2be5eb6fa327d2
+  sha256: 99409da055306524254a8d19595ec13810f11112f34c6a93306475861490a734
 
 build:
   noarch: python
@@ -20,7 +20,7 @@ requirements:
   host:
     - hatch-jupyter-builder >=0.7
     - hatchling >=1.10.0
-    - jupyterlab >=4.0.2,<5
+    - jupyterlab >=4.1.0,<5
     - pip
     - python >=3.8
   run:
@@ -35,12 +35,13 @@ requirements:
     - jupyterlab_server
     - nbclient >=0.6.1
     - nbconvert >=6
-    - notebook >=7.0.2,<8
+    - notebook >=7.1.0,<8
     - python >=3.8
     - python-dateutil >=2.8
     - pyyaml >=6.0
     - rapidfuzz >=1.8
     - requests >=2.26
+    - setuptools
     - sqlalchemy >=1.4,<3
 
 test:

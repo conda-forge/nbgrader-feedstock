@@ -1,11 +1,8 @@
+bot:
+  inspection: hint-all
+conda_build:
+  pkg_format: '2'
 conda_forge_output_validation: true
-provider: {linux_aarch64: default, win: azure}
 github:
   branch_name: main
   tooling_branch_name: main
-linux_ppc64le:
-  enabled: false
-conda_build:
-  pkg_format: '2'
-bot:
-  inspection: hint-all
