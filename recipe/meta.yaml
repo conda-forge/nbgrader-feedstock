@@ -20,7 +20,7 @@ requirements:
   host:
     - hatch-jupyter-builder >=0.7
     - hatchling >=1.10.0
-    - jupyterlab >=4.1.0,<5
+    - jupyterlab >=4.2.0,<5
     - pip
     - python >=3.8
   run:
@@ -31,11 +31,11 @@ requirements:
     - jsonschema >=3
     - jupyter_client <9
     - jupyter_server >=2
-    - jupyterlab >=4.0.2,<5
+    - jupyterlab >=4.2.0,<5
     - jupyterlab_server
     - nbclient >=0.6.1
     - nbconvert >=6
-    - notebook >=7.1.0,<8
+    - notebook >=7.2.0,<8
     - python >=3.8
     - python-dateutil >=2.8
     - pyyaml >=6.0
