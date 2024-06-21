@@ -63,7 +63,7 @@ test:
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*OK" server_extensions
     - grep -iE "nbgrader.server_extensions.{{ ext }}.*enabled" server_extensions
     {% endfor %}
-    - grep -iE "nbgrader.*OK.*nbgrader" labextensions
+    - grep -iE "@jupyter/nbgrader.*OK" labextensions
 
 about:
   home: https://github.com/jupyter/nbgrader
