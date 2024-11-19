@@ -1,4 +1,4 @@
-{% set version = "0.9.3" %}
+{% set version = "0.9.4" %}
 
 package:
   name: nbgrader
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: 97eb3ced553af1cbb76d5d5015e971f473ea26c744883976b77bb4e066b27d41
+  sha256: 355821170f994c5c361be8af4eb6c189e7f9b210a4e82a1a78fbc4a3ce2290a9
 
 build:
   noarch: python
