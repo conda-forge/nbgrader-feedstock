@@ -1,18 +1,22 @@
 {% set version = "0.9.4" %}
+{% set python_min = python_min | default("3.9") %}
+
+{% set jupyterlab_min = "4.2" %}
+{% set jupyterlab_max = "5.0" %}
 
 package:
   name: nbgrader
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
   sha256: 355821170f994c5c361be8af4eb6c189e7f9b210a4e82a1a78fbc4a3ce2290a9
 
 build:
   noarch: python
   number: 0
   script:
-    - {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   entry_points:
     - nbgrader = nbgrader.apps.nbgraderapp:main
 
@@ -20,9 +24,9 @@ requirements:
   host:
     - hatch-jupyter-builder >=0.7
     - hatchling >=1.10.0
-    - jupyterlab >=4.2.0,<5
+    - jupyterlab {{ jupyterlab_min }}
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - alembic >=1.7
     - ipython >=8.10.0
@@ -31,12 +35,12 @@ requirements:
     - jsonschema >=3
     - jupyter_client <9
     - jupyter_server >=2
-    - jupyterlab >=4.2.0,<5
+    - jupyterlab >={{ jupyterlab_min }},<{{ jupyterlab_max }}
     - jupyterlab_server
     - nbclient >=0.6.1
     - nbconvert >=6
     - notebook >=7.2.0,<8
-    - python >=3.8
+    - python >={{ python_min }}
     - python-dateutil >=2.8
     - pyyaml >=6.0
     - rapidfuzz >=1.8
@@ -46,9 +50,10 @@ requirements:
 
 test:
   requires:
-    - pip
+    - jupyterlab {{ jupyterlab_min }}
     - m2-grep  # [win]
-    - jupyterlab
+    - pip
+    - python {{ python_min }}
   imports:
     - nbgrader
   commands:
