@@ -1,4 +1,4 @@
-{% set version = "0.9.5" %}
+{% set version = "0.9.6" %}
 {% set python_min = python_min | default("3.9") %}
 
 {% set jupyterlab_min = "4.2" %}
@@ -9,8 +9,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
-  sha256: 1ea898f3b1cd15ebd1f407591ac94b454244566876f0bc8740f5b1d501dc076a
+  url: https://files.pythonhosted.org/packages/source/n/nbgrader/nbgrader-{{ version }}.tar.gz
+  sha256: d01c3a1033c0ef1535936fc53b8e152b46e1e06c02422dca5ef7d5ae62076d4f
 
 build:
   noarch: python
